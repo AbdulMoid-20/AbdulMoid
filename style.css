@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/*---------------------------------------------reset css start---------------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+/*---------------------------------------------body start---------------------------------------------*/
+body{
+    background-color: #1f242d;
+    color: #fff;
+}
+/*---------------------------------------------body end---------------------------------------------*/
+
+/*---------------------------------------------header start---------------------------------------------*/
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+a{
+    color: #fff ;
+    text-decoration: none;
+}
+.logo{
+    font-size: 40px;
+    font-weight: 700;
+}
+header nav ul{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+header nav ul li{
+    list-style: none;
+    transition: .5s;
+}
+header nav ul li a{
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow: 0 0 10px #7cf03d;
+    transition: .5s;
+}
+header nav ul li a:hover{
+    color: #7cf03d;
+}
+header nav ul li .active{
+    text-decoration: underline #7cf03d;
+    text-underline-offset: 30px ;
+}
+/*---------------------------------------------header end---------------------------------------------*/
+/*---------------------------------------------footer start---------------------------------------------*/
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px -1.95px 2.6px;
+    padding: 15px 5%;
+    opacity: 50%;
+    color: #fff;
+}
+/*---------------------------------------------footer end---------------------------------------------*/
+
+
+/*---------------------------------------------home page start---------------------------------------------*/
+
+/*---------------------------------------------hero section start---------------------------------------------*/
+.hero-section{
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    margin: 60px 5%;
+}
+.hero-txt h1{
+    font-size: 55px;
+    text-shadow: 0 0 25px #7cf03d;
+
+}
+.hero-txt h2{
+    font-size: 32px;
+    margin-top: -10px;
+}
+.hero-txt p{
+    width: 600px;
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+.hero-txt .btn{
+    padding: 10px 30px;
+    background-color: #7cf03d;
+    border: 2px solid #7cf03d;
+    border-radius: 40px;
+    box-shadow: 0 0 5px #7cf03d;
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 600;
+}
+.hero-txt .btn:hover{
+    background: transparent;
+    color: #7cf03d;
+    box-shadow: 0 0 10px #7cf03d;
+    transition: .5s;
+}
+.btn-links{
+    display: flex;
+    align-items: center;
+    margin: -10px 0;
+    padding: 0 10px;
+    gap: 30px;
+}
+.links a {
+    border: 2px solid #7cf03d;
+    box-shadow: 0 0 5px #7cf03d;
+    display: inline-flex;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 20px;
+    margin: 0 8px;
+}
+.links a:hover{
+    background-color: #7cf03d;
+    color: #1f242d;
+    box-shadow: 0 0 10px #7cf03d;
+    transition: .5s;
+}
+.hero-img{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 25px #7cf03d;
+    border: 2px solid #7cf03d;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.hero-img img{    
+    position: absolute;
+    top: -50px;
+}
+/*---------------------------------------------hero section end---------------------------------------------*/
+
+/*---------------------------------------------home page end---------------------------------------------*/
+
+
+
+/*---------------------------------------------project page start---------------------------------------------*/
+.section-heading{
+    font-size: 42px;
+    margin: 30px 6%;
+    color:#7cf03d;
+    text-shadow: 0 0 5px #7cf03d;
+}
+.section-details{
+    font-size: 18px;
+    margin: 0 6%;
+    margin-top: -20px;
+    opacity: 75%;
+
+}
+.line{
+    border: 1px solid #7cf03d;
+    /* margin: 20px 3%; */
+    margin: 20px auto;
+    width: 1200px;
+    
+}
+section{
+    display: grid;
+    grid-template-columns: auto  auto;
+    place-content: center;
+    gap: 50px;
+    margin: 80px 7%;
+
+}
+.projects{
+    max-width: fit-content;
+    padding: 30px 30px;
+    border-radius: 5px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #7cf03d;
+    box-shadow: 0px 5px 20px 1px #7cf03d;
+}
+.projects a{
+    transition: .5s;
+}
+.projects img{
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+}
+.projects h2{
+    font-size: 32;
+    margin: 10px auto;
+    transition: .5s;
+    width: max-content;
+}
+.projects p{
+    font-size: 18px;
+    transition: .5s;
+    display: inline;
+}
+.projects a :hover{
+    color: #7cf03d;
+    text-shadow: 0 0 10px #7cf03d;
+
+}
+/*---------------------------------------------project page end---------------------------------------------*/
+
+
+
+
+/*---------------------------------------------about page start---------------------------------------------*/
+.about{
+    margin: 20px 7%;
+}
+.about h1{
+    font-size: 50px;
+}
+.about p{
+    font-size: 18px;
+}
+.about h2{
+    margin: 10px 0;
+    font-size: 30px;
+    color: #7cf03d;
+}
+.about ul {
+    margin: 0 5%;
+}
+/*---------------------------------------------about page end---------------------------------------------*/
