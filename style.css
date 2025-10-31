@@ -24,7 +24,6 @@ html{
 .width-80{
     width: 80vw;
     margin: auto;
-    /* overflow: hidden; */
 }
 
 .row{
@@ -56,6 +55,11 @@ button , .btn:hover{
 
 .padding{
     padding: 40px 0;
+}
+.text-shadow{
+    text-shadow: 0 0 15px var(--primary);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 /*---------------------------------------------body start---------------------------------------------*/
 body{
@@ -232,12 +236,17 @@ section{
     text-align: center;
     border-radius: 5px;
     border: 2px solid var(--primary);
-    box-shadow: 0px 5px 20px 1px var(--primary);
+    box-shadow: 0px 5px 15px 1px var(--primary);
     transition: transform 0.2s ease;
+    transition: .5s;
+}
+.projects::after{
+    content: '';
+    
 }
 .projects:hover{
-    transform: translateY(-5px);
-    
+    transform: translateY(-10px);
+    box-shadow: 0px 5px 25px 1px var(--primary);
 }
 .projects a{
     transition: .5s;
@@ -258,10 +267,6 @@ section{
     display: inline;
 }
 
-.projects a :hover{
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--primary);
-}
 /*---------------------------------------------project page end---------------------------------------------*/
 
 /*---------------------------------------------about page start---------------------------------------------*/
