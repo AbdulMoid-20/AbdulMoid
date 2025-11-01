@@ -31,9 +31,25 @@
         <p class="section-details">The list of my projects. Everything was made with ❤️.</p>
         <div class="line"></div>
         <section class="grid">
-            <div class="projects">
-                <img src="./images/project-1.jpeg" alt="">
-            </div>
+            <div class="projects relative group  overflow-hidden rounded-xl shadow-lg">
+  <!-- Image -->
+  <img src="./images/project-1.jpeg" alt="Project"
+       class="w-full h-full object-cover transition duration-500 ease-in-out group-hover:blur-sm">
+
+  <!-- Overlay Buttons -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 
+              opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40">
+    <a href="https://example.com" target="_blank" 
+       class="px-4 py-2 bg-gradient-to-r from-pink-500 to-red-500 text-white font-medium rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+       View Live
+    </a>
+    <a href="https://github.com/" target="_blank" 
+       class="px-4 py-2 bg-gray-800 text-white font-medium rounded-lg hover:bg-gray-700 hover:scale-105 transition-transform duration-300">
+       View Code
+    </a>
+  </div>
+</div>
+
             <!-- <div class="projects">
                 <a href="https://abdulmoid-20.github.io/my-web/" target="_blank">
                     <img src="images/project-1.jpeg" alt="project 1">
@@ -75,7 +91,8 @@
             <p>© 2025 Abdul Moid Siddiqui</p>
         </div>
     </footer>
-    <!-- footer emd  -->
+    <!-- footer end  -->
 
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </body>
 </html>
