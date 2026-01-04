@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Abdul Moid | Frontend Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <!-- LOGO -->
+                <a href="#" class="navbar-brand">
+                    <div class="logo-container">
+                        <img src="./assets/logo-2.png" alt="logo" class="logo">
+                    </div>
+                </a>
+
+                <!-- TOGGLER -->
+                <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- NAV LINKS -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto gap-4 align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#features">Feature</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Hero -->
+    <section id="home" class="section hero">
+        <div class="container hero-wrapper">
+
+            <div class="hero-content">
+                <h3>Hello, I’m</h3>
+                <h1>Abdul Moid</h1>
+                <h2><span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span></h2>
+                <p>Frontend Developer focused on building modern UI.</p>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="./assets/profile-new.png" alt="">
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I am a passionate Frontend Developer with experience in modern UI development,
+                responsive design, and performance-optimized applications using
+                React and modern CSS frameworks.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+
+            <h2>Skills</h2>
+
+            <div class="skills-grid">
+                <div class="skill"><i class="fab fa-html5 html"></i><span>HTML</span></div>
+                <div class="skill"><i class="fab fa-css3-alt css"></i><span>CSS</span></div>
+                <div class="skill"><i class="fab fa-js js"></i><span>JavaScript</span></div>
+                <div class="skill"><i class="fab fa-bootstrap bootstrap"></i><span>Bootstrap</span></div>
+                <div class="skill"><i class="fab fa-react react"></i><span>React</span></div>
+                <div class="skill"><i class="fas fa-wind tailwind"></i><span>Tailwind</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+
+            <h2>Contact Me</h2>
+
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name">
+                <input type="email" id="email" placeholder="Your Email">
+                <textarea id="message" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+                <p id="formMessage"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Abdul Moid. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
