@@ -171,3 +171,28 @@ window.addEventListener("scroll", () => {
         header.classList.remove("scrolled");
     }
 });
+
+
+const sections = document.querySelectorAll("section[id]");
+const navItems = document.querySelectorAll(".navbar .nav-item");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navItems.forEach(item => {
+        item.classList.remove("active");
+
+        const link = item.querySelector("a");
+        if (link.getAttribute("href") === `#${current}`) {
+            item.classList.add("active");
+        }
+    });
+});
+
