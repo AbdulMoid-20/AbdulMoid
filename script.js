@@ -1,3 +1,6 @@
+/* ================================
+   TYPEWRITER EFFECT
+================================ */
 const roles = [
     "Frontend Developer",
     "React Developer",
@@ -6,7 +9,7 @@ const roles = [
 
 let roleIndex = 0;
 let charIndex = 0;
-const speed = 100;
+const speed = 90;
 const typewriter = document.getElementById("typewriter");
 
 function type() {
@@ -14,11 +17,10 @@ function type() {
         const span = document.createElement("span");
         span.textContent = roles[roleIndex][charIndex];
         typewriter.appendChild(span);
-
         charIndex++;
         setTimeout(type, speed);
     } else {
-        setTimeout(erase, 2000);
+        setTimeout(erase, 1800);
     }
 }
 
@@ -35,63 +37,64 @@ function erase() {
 
 type();
 
-/* Contact Form Validation */
+/* ================================
+   CONTACT FORM + MODAL
+================================ */
 document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
-    const formMessage = document.getElementById("formMessage");
 
     if (!name || !email || !message) {
-        formMessage.style.color = "red";
-        formMessage.textContent = "Please fill in all fields.";
+        alert("Please fill in all fields.");
         return;
     }
 
     if (!email.includes("@")) {
-        formMessage.style.color = "red";
-        formMessage.textContent = "Please enter a valid email.";
+        alert("Please enter a valid email address.");
         return;
     }
 
-    formMessage.style.color = "lightgreen";
-    formMessage.textContent = "Message sent successfully!";
     this.reset();
+
+    // Show Bootstrap modal
+    const modal = new bootstrap.Modal(
+        document.getElementById("sendModal")
+    );
+    modal.show();
 });
 
-
+/* ================================
+   LIGHTNING SPARK CURSOR
+================================ */
 let lastTime = 0;
 
 document.addEventListener("mousemove", (e) => {
     const now = Date.now();
-    if (now - lastTime < 20) return; // throttle
+    if (now - lastTime < 18) return;
     lastTime = now;
 
-    // create multiple sparks per move
     const sparksCount = 2 + Math.floor(Math.random() * 2);
 
     for (let i = 0; i < sparksCount; i++) {
         const spark = document.createElement("div");
         spark.className = "lightning-spark";
 
-        const angle = Math.random() * 360;
-        spark.style.setProperty("--angle", `${angle}deg`);
-
+        spark.style.setProperty("--angle", `${Math.random() * 360}deg`);
         spark.style.left = `${e.clientX}px`;
         spark.style.top = `${e.clientY}px`;
-
-        // random size
-        spark.style.width = `${8 + Math.random() * 16}px`;
+        spark.style.width = `${8 + Math.random() * 14}px`;
 
         document.body.appendChild(spark);
-
         setTimeout(() => spark.remove(), 400);
     }
 });
 
-
+/* ================================
+   CUSTOM CURSOR CORE + RING
+================================ */
 const core = document.createElement("div");
 const ring = document.createElement("div");
 
@@ -104,7 +107,6 @@ document.body.appendChild(ring);
 let mouseX = 0, mouseY = 0;
 let ringX = 0, ringY = 0;
 
-// Smooth trailing effect
 function animateCursor() {
     ringX += (mouseX - ringX) * 0.15;
     ringY += (mouseY - ringY) * 0.15;
@@ -124,11 +126,10 @@ document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    // Subtle energy arcs
-    if (Math.random() > 0.85) {
+    // Energy arc effect
+    if (Math.random() > 0.88) {
         const arc = document.createElement("span");
         arc.className = "energy-arc";
-
         arc.style.left = `${mouseX}px`;
         arc.style.top = `${mouseY}px`;
         arc.style.setProperty("--angle", `${Math.random() * 360}deg`);
@@ -137,3 +138,27 @@ document.addEventListener("mousemove", (e) => {
         setTimeout(() => arc.remove(), 350);
     }
 });
+
+
+function openWhatsApp() {
+    const phoneNumber = "919876543210"; // country code + number
+    const message = encodeURIComponent(
+        "Hi Abdul Moid, I came across your portfolio and would like to connect."
+    );
+
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, "_blank");
+}
+
+function openEmail() {
+    const email = "abdulmoidsiddiqui2008@gmail.com";
+    const subject = encodeURIComponent("Portfolio Inquiry");
+    const body = encodeURIComponent(
+        "Hi Abdul Moid,\n\nI came across your portfolio and would like to connect with you.\n\nRegards,"
+    );
+
+    const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+    
+}
+
