@@ -1888,4 +1888,56 @@ header.scrolled .header-divider {
 }
 
 
+.floating-icons {
+    position: fixed;
+    right: 16px;
+    bottom: calc(90px + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 99999;
+}
 
+.floating-icons .icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 15px var(--shadow-color);
+    text-decoration: none;
+}
+
+.chatbot-icon {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px var(--shadow-color);
+    z-index: 100000;
+}
+
+@media (pointer: coarse) {
+    .floating-icons .icon,
+    .chatbot-icon {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .cursor-core,
+    .cursor-ring,
+    .lightning-spark {
+        display: none !important;
+    }
+}
