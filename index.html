@@ -29,10 +29,15 @@
                 </a>
 
                 <!-- TOGGLER -->
-                <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse"
+                <!-- <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-label="Toggle navigation">
+                    <span class="toggler-icon"></span>
                 </button>
+
 
                 <!-- NAV LINKS -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -100,8 +105,12 @@
                     <div class="about-stats">
                         <div class="stat">
                             <h3>1+</h3>
-                            <p>Years Experience</p>
+                            <p>Coding Hours</p>
                         </div>
+                        <!-- <div class="stat">
+                            <h3>1+</h3>
+                            <p>Years Experience</p>
+                        </div> -->
                         <div class="stat">
                             <h3>15+</h3>
                             <p>Projects Built</p>
@@ -511,6 +520,35 @@
 
     </div>
 
+    <!-- Chat Bot Button -->
+    <div class="chatbot-toggle" id="chatToggle">
+        <i class="fas fa-comments"></i>
+    </div>
+    
+    <!-- Chat Bot Window -->
+    <div class="chatbot-window" id="chatWindow">
+        <div class="chatbot-header">
+            <span>Portfolio Assistant</span>
+            <button id="chatClose">&times;</button>
+        </div>
+    
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="bot-message">
+                👋 Hi! I’m Abdul Moid’s portfolio assistant.
+                How can I help you?
+            </div>
+        </div>
+    
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Ask about projects, skills..." />
+            <button id="chatSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    
+    
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

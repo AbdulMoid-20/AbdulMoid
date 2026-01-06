@@ -1,12 +1,24 @@
-/* ================================
-   TYPEWRITER EFFECT
-================================ */
 const roles = [
     "Frontend Developer",
     "React Developer",
     "UI Engineer"
 ];
+const header = document.querySelector("header");
+const sections = document.querySelectorAll("section[id]");
+const navItems = document.querySelectorAll(".navbar .nav-item");
+const modalElement = document.getElementById("projectModal");
+const modal = new bootstrap.Modal(modalElement);
+const chatToggle = document.getElementById("chatToggle");
+const chatWindow = document.getElementById("chatWindow");
+const chatClose = document.getElementById("chatClose");
+const chatSend = document.getElementById("chatSend");
+const chatInput = document.getElementById("chatInput");
+const chatMessages = document.getElementById("chatMessages");
 
+
+/* ================================
+   TYPEWRITER EFFECT
+================================ */
 let roleIndex = 0;
 let charIndex = 0;
 const speed = 90;
@@ -162,7 +174,6 @@ function openEmail() {
     
 }
 
-const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
@@ -172,9 +183,6 @@ window.addEventListener("scroll", () => {
     }
 });
 
-
-const sections = document.querySelectorAll("section[id]");
-const navItems = document.querySelectorAll(".navbar .nav-item");
 
 window.addEventListener("scroll", () => {
     let current = "";
@@ -196,27 +204,6 @@ window.addEventListener("scroll", () => {
     });
 });
 
-// const modal = new bootstrap.Modal(
-//     document.getElementById("projectModal")
-// );
-
-// document.querySelectorAll(".project-card").forEach(card => {
-//     card.addEventListener("click", () => {
-//         document.getElementById("modalTitle").innerText = card.dataset.title;
-//         document.getElementById("modalDescription").innerText = card.dataset.long;
-//         document.getElementById("modalTech").innerHTML =
-//             card.dataset.tech.split(",").map(t => `<span>${t}</span>`).join("");
-
-//         document.getElementById("modalLive").href = card.dataset.live;
-//         document.getElementById("modalCode").href = card.dataset.code;
-
-//         modal.show();
-//     });
-// });
-
-
-const modalElement = document.getElementById("projectModal");
-const modal = new bootstrap.Modal(modalElement);
 
 document.querySelectorAll(".project-card").forEach(card => {
     card.addEventListener("click", () => {
@@ -254,3 +241,53 @@ document.querySelectorAll(".project-card").forEach(card => {
         modal.show();
     });
 });
+
+
+// Open / Close
+chatToggle.onclick = () => chatWindow.classList.toggle("active");
+chatClose.onclick = () => chatWindow.classList.remove("active");
+
+// Send message
+chatSend.onclick = sendMessage;
+chatInput.addEventListener("keypress", e => {
+    if (e.key === "Enter") sendMessage();
+});
+
+function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    addMessage(text, "user");
+    chatInput.value = "";
+
+    setTimeout(() => {
+        addMessage(getBotReply(text), "bot");
+    }, 600);
+}
+
+function addMessage(text, type) {
+    const msg = document.createElement("div");
+    msg.className = type === "user" ? "user-message" : "bot-message";
+    msg.innerText = text;
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Simple responses
+function getBotReply(msg) {
+    msg = msg.toLowerCase();
+
+    if (msg.includes("project"))
+        return "You can check Abdul Moid’s projects section for frontend apps, dashboards, and UI work.";
+
+    if (msg.includes("skill"))
+        return "He works with HTML, CSS, JavaScript, Bootstrap, Tailwind, and React.";
+
+    if (msg.includes("contact"))
+        return "You can contact him via WhatsApp, LinkedIn, or the contact form below.";
+
+    if (msg.includes("hire"))
+        return "Abdul Moid is open to frontend internships and junior roles.";
+
+    return "Thanks for your message! Feel free to explore the portfolio or ask about skills or projects.";
+}
