@@ -153,7 +153,7 @@ document.addEventListener("mousemove", (e) => {
 
 
 function openWhatsApp() {
-    const phoneNumber = "919876543210"; // country code + number
+    const phoneNumber = "923308136967"; // country code + number
     const message = encodeURIComponent(
         "Hi Abdul Moid, I came across your portfolio and would like to connect."
     );
