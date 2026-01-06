@@ -242,6 +242,80 @@ document.querySelectorAll(".project-card").forEach(card => {
     });
 });
 
+/* ================================
+   SCROLL COUNT-UP STATS
+================================ */
+
+// ---- CONFIG ----
+const codingStartDate = new Date("2024-01-01"); // change if needed
+const avgHoursPerDay = 3;
+
+// Calculate real coding hours
+function getCodingHours() {
+    const now = new Date();
+    const diffDays = Math.floor(
+        (now - codingStartDate) / (1000 * 60 * 60 * 24)
+    );
+    return diffDays * avgHoursPerDay;
+}
+
+// Animate number
+function animateCount(el, target, suffix = "+") {
+    let current = 0;
+    const increment = Math.max(1, Math.floor(target / 80));
+
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            el.textContent = target + suffix;
+            clearInterval(timer);
+        } else {
+            el.textContent = current + suffix;
+        }
+    }, 20);
+}
+
+// Intersection Observer (BEST WAY)
+let statsAnimated = false;
+
+const statsObserver = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !statsAnimated) {
+                statsAnimated = true;
+
+                document.querySelectorAll(".about-stats h3")
+                    .forEach(el => {
+
+                        let target = el.dataset.target;
+                        let suffix = "+";
+
+                        // Coding hours (dynamic)
+                        if (el.id === "codingHours") {
+                            target = getCodingHours();
+                        }
+
+                        // Percentage
+                        if (el.textContent.includes("%")) {
+                            suffix = "%";
+                        }
+
+                        animateCount(el, Number(target), suffix);
+                    });
+            }
+        });
+    },
+    { threshold: 0.4 }
+);
+
+// Observe section
+const statsSection = document.getElementById("aboutStats");
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
+
+
+
 
 // Open / Close
 chatToggle.onclick = () => chatWindow.classList.toggle("active");
@@ -291,3 +365,11 @@ function getBotReply(msg) {
 
     return "Thanks for your message! Feel free to explore the portfolio or ask about skills or projects.";
 }
+
+AOS.init({
+    duration: 900,
+    easing: "ease-out-cubic",
+    once: true,       // animate only once
+    offset: 120
+});
+

@@ -11,6 +11,7 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
@@ -23,24 +24,20 @@
 
                 <!-- LOGO -->
                 <a href="#" class="navbar-brand">
-                    <div class="logo-container">
+                    <div class="logo-container" data-aos="fade-right">
                         <img src="./assets/logo-2.png" alt="logo" class="logo">
                     </div>
                 </a>
 
                 <!-- TOGGLER -->
-                <!-- <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
                 <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-label="Toggle navigation" data-aos="fade-left">
                     <span class="toggler-icon"></span>
                 </button>
 
 
                 <!-- NAV LINKS -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" data-aos="fade-left">
                     <ul class="navbar-nav ms-auto gap-4 align-items-center">
                         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
@@ -60,7 +57,7 @@
     <section id="home" class="section hero">
         <div class="container hero-wrapper">
 
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-right">
                 <h3>Hello, I’m</h3>
                 <h1>Abdul Moid</h1>
                 <h2><span id="typewriter" class="typewriter-text"></span><span class="cursor">|</span></h2>
@@ -68,7 +65,7 @@
                 <a href="#contact" class="btn">Contact Me</a>
             </div>
 
-            <div class="hero-image">
+            <div class="hero-image" data-aos="fade-left">
                 <img src="./assets/profile-new.png" alt="">
             </div>
 
@@ -82,12 +79,12 @@
 
             <div class="about-wrapper">
 
-                <div class="about-header">
+                <div class="about-header" data-aos="fade-up">
                     <h2>About Me</h2>
                     <span class="section-line"></span>
                 </div>
 
-                <div class="about-card">
+                <div class="about-card" data-aos="zoom-in">
                     <p class="about-text">
                         I’m <span class="highlight">Abdul Moid</span>, a frontend developer who specializes in
                         building <strong>high-performance</strong>, <strong>visually striking</strong>, and
@@ -102,24 +99,25 @@
                         and user experience in mind.
                     </p>
 
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>1+</h3>
+                    <div class="about-stats" id="aboutStats">
+
+                        <div class="stat" data-aos="fade-up" data-aos-delay="0">
+                            <h3 id="codingHours" data-target="0">0+</h3>
                             <p>Coding Hours</p>
                         </div>
-                        <!-- <div class="stat">
-                            <h3>1+</h3>
-                            <p>Years Experience</p>
-                        </div> -->
-                        <div class="stat">
-                            <h3>15+</h3>
+
+                        <div class="stat" data-aos="fade-up" data-aos-delay="150">
+                            <h3 data-target="15">0+</h3>
                             <p>Projects Built</p>
                         </div>
-                        <div class="stat">
-                            <h3>100%</h3>
+
+                        <div class="stat" data-aos="fade-up" data-aos-delay="300">
+                            <h3 data-target="100">0%</h3>
                             <p>UI Focused</p>
                         </div>
+
                     </div>
+
                 </div>
 
             </div>
@@ -132,7 +130,7 @@
     <section id="skills" class="skills-section">
         <div class="container">
 
-            <div class="skills-header">
+            <div class="skills-header" data-aos="fade-up">
                 <h2>Skills</h2>
                 <span class="section-line"></span>
             </div>
@@ -144,32 +142,32 @@
 
             <div class="skills-grid">
 
-                <div class="skill">
+                <div class="skill" data-aos="zoom-in" data-aos-delay="0">
                     <i class="fab fa-html5 html"></i>
                     <span>HTML5</span>
                 </div>
 
-                <div class="skill">
+                <div class="skill" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fab fa-css3-alt css"></i>
                     <span>CSS3</span>
                 </div>
 
-                <div class="skill">
+                <div class="skill" data-aos="zoom-in" data-aos-delay="200">
                     <i class="fab fa-js js"></i>
                     <span>JavaScript</span>
                 </div>
 
-                <div class="skill">
+                <div class="skill" data-aos="zoom-in" data-aos-delay="300">
                     <i class="fab fa-bootstrap bootstrap"></i>
                     <span>Bootstrap</span>
                 </div>
 
-                <div class="skill">
+                <div class="skill" data-aos="zoom-in" data-aos-delay="400">
                     <i class="fab fa-react react"></i>
                     <span>React</span>
                 </div>
 
-                <div class="skill">
+                <div class="skill" data-aos="zoom-in" data-aos-delay="500">
                     <i class="fas fa-wind tailwind"></i>
                     <span>Tailwind CSS</span>
                 </div>
@@ -199,7 +197,7 @@
                 <div class="project-card reveal" data-title="Restaurant Website"
                     data-long="A responsive restaurant website built with HTML, CSS and JavaScript. It features a menu, hero section, and responsive layout."
                     data-tech="HTML,CSS,JavaScript" data-live="https://abdulmoid-20.github.io/Restaurant"
-                    data-code="https://github.com/AbdulMoid-20/Resturant.git">
+                    data-code="https://github.com/AbdulMoid-20/Resturant.git" data-aos="fade-up" data-aos-delay="0">
 
                     <div class="project-image">
                         <img src="./assets/resturant.png" alt="Restaurant Website">
@@ -219,7 +217,7 @@
                 <div class="project-card reveal" data-title="Furni E-Commerce UI"
                     data-long="A furniture store frontend UI built with HTML, CSS and JavaScript. Includes product listings, filters, and responsive design."
                     data-tech="HTML,CSS,JavaScript" data-live="https://abdulmoid-20.github.io/Furni"
-                    data-code="https://github.com/AbdulMoid-20/Furni.git">
+                    data-code="https://github.com/AbdulMoid-20/Furni.git" data-aos="fade-up" data-aos-delay="120">
 
                     <div class="project-image">
                         <img src="assets/furni.png" alt="Furni Website">
@@ -239,7 +237,7 @@
                 <div class="project-card reveal" data-title="TechHive"
                     data-long="A modern tech product UI showcasing responsive design and interactive elements built with modern frontend tools."
                     data-tech="HTML,CSS,JavaScript" data-live="https://abdulmoid-20.github.io/TechHive"
-                    data-code="https://github.com/AbdulMoid-20/TechHive.git">
+                    data-code="https://github.com/AbdulMoid-20/TechHive.git" data-aos="fade-up" data-aos-delay="240">
 
                     <div class="project-image">
                         <img src="assets/TechHive software solutions banner.png" alt="TechHive">
@@ -259,7 +257,7 @@
                 <div class="project-card reveal" data-title="Adminify Dashboard"
                     data-long="A dashboard UI with stats, cards and charts interface built with HTML, CSS, and JavaScript."
                     data-tech="HTML,CSS,JavaScript" data-live="https://abdulmoid-20.github.io/Adminify"
-                    data-code="https://github.com/AbdulMoid-20/Adminify.git">
+                    data-code="https://github.com/AbdulMoid-20/Adminify.git" data-aos="fade-up" data-aos-delay="360">
 
                     <div class="project-image">
                         <img src="assets/adminify.png" alt="Adminify Dashboard">
@@ -279,7 +277,7 @@
                 <div class="project-card reveal" data-title="To-Do App"
                     data-long="A functional To-Do list application with add, delete and mark-complete features built using vanilla JavaScript."
                     data-tech="HTML,CSS,JavaScript" data-live="https://abdulmoid-20.github.io/To-Do-App"
-                    data-code="https://github.com/AbdulMoid-20/To-Do-App.git">
+                    data-code="https://github.com/AbdulMoid-20/To-Do-App.git" data-aos="fade-up" data-aos-delay="480">
 
                     <div class="project-image">
                         <img src="assets/todo.png" alt="To-Do App">
@@ -299,7 +297,8 @@
                 <div class="project-card reveal" data-title="Tasbeeh Counter"
                     data-long="A digital counter app built to count tasbeeh with simple controls and UI."
                     data-tech="HTML,CSS,JavaScript" data-live="https://abdulmoid-20.github.io/Tasbeeh-Counter"
-                    data-code="https://github.com/AbdulMoid-20/Tasbeeh-Counter.git">
+                    data-code="https://github.com/AbdulMoid-20/Tasbeeh-Counter.git" data-aos="fade-up"
+                    data-aos-delay="480">
 
                     <div class="project-image">
                         <img src="assets/tasbeeh.png" alt="Tasbeeh Counter">
@@ -383,7 +382,7 @@
         <div class="container">
 
             <!-- Section Header (same as Skills) -->
-            <div class="section-header-line">
+            <div class="section-header-line" data-aos="fade-up">
                 <h2>Contact</h2>
                 <span class="section-line"></span>
             </div>
@@ -395,7 +394,7 @@
             <div class="contact-wrapper">
 
                 <!-- Contact Info -->
-                <div class="contact-info">
+                <div class="contact-info" data-aos="fade-right">
 
                     <div class="info-item whatsapp-item" onclick="openWhatsApp()" title="Chat on WhatsApp">
 
@@ -430,7 +429,7 @@
                 </div>
 
                 <!-- Contact Form -->
-                <form id="contactForm" class="contact-form">
+                <form id="contactForm" class="contact-form" data-aos="fade-left">
                     <input type="text" id="name" placeholder="Your Name">
                     <input type="email" id="email" placeholder="Your Email">
                     <textarea id="message" placeholder="Your Message"></textarea>
@@ -473,16 +472,16 @@
 
         <div class="container footer-wrapper">
 
-            <div class="footer-left">
+            <div class="footer-left" data-aos="fade-up">
                 <p class="footer-name">Abdul Moid</p>
                 <p class="footer-role">Frontend Developer</p>
             </div>
 
-            <div class="footer-center">
+            <div class="footer-center" data-aos="fade-up" data-aos-delay="150">
                 <p>© 2025 Abdul Moid. All rights reserved.</p>
             </div>
 
-            <div class="footer-right">
+            <div class="footer-right" data-aos="fade-up" data-aos-delay="300">
                 <a href="https://github.com/AbdulMoid-20" target="_blank" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
@@ -496,7 +495,7 @@
 
 
     <!-- Floating Social Stack -->
-    <div class="social-float">
+    <div class="social-float" data-aos="fade-left">
 
         <!-- WhatsApp -->
         <a href="https://wa.me/923308136967?text=Hi%20Abdul%20Moid%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect."
@@ -521,24 +520,24 @@
     </div>
 
     <!-- Chat Bot Button -->
-    <div class="chatbot-toggle" id="chatToggle">
+    <div class="chatbot-toggle" id="chatToggle" data-aos="fade-up">
         <i class="fas fa-comments"></i>
     </div>
-    
+
     <!-- Chat Bot Window -->
     <div class="chatbot-window" id="chatWindow">
         <div class="chatbot-header">
             <span>Portfolio Assistant</span>
             <button id="chatClose">&times;</button>
         </div>
-    
+
         <div class="chatbot-messages" id="chatMessages">
             <div class="bot-message">
                 👋 Hi! I’m Abdul Moid’s portfolio assistant.
                 How can I help you?
             </div>
         </div>
-    
+
         <div class="chatbot-input">
             <input type="text" id="chatInput" placeholder="Ask about projects, skills..." />
             <button id="chatSend">
@@ -547,10 +546,10 @@
         </div>
     </div>
 
-    
-    
 
 
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
