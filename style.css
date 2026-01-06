@@ -1313,52 +1313,100 @@ header.scrolled .header-divider {
 
 
 /* ================================
-   WHATSAPP FLOAT BUTTON
+   FLOATING SOCIAL STACK
 ================================ */
-.whatsapp-float {
+.social-float {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    width: 54px;
-    height: 54px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 9999;
+}
+
+/* Base button */
+.social-btn {
+    position: relative;
+    overflow: hidden;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: var(--color-surface);
-    color: var(--color-active);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
+    color: var(--color-text-primary);
     text-decoration: none;
-
-    box-shadow:
-        0 0 12px var(--shadow-color),
-        0 0 30px var(--shadow-color);
-
+    font-size: 22px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
 }
 
-/* Icon */
-.whatsapp-float i {
-    font-size: 2rem;
+.social-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 50%;
+    background: linear-gradient(120deg,
+            transparent,
+            var(--color-primary),
+            transparent,
+            var(--color-focus),
+            transparent);
+    background-size: 300% 300%;
+    animation: borderFlow 6s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* WhatsApp */
+.social-btn.whatsapp {
+    background: var(--color-surface);
+    box-shadow:
+        0 0 14px var(--shadow-color),
+        0 0 30px var(--shadow-color);
+}
+
+/* LinkedIn */
+.social-btn.linkedin {
+    background: var(--color-surface);
+    box-shadow:
+        0 0 14px var(--shadow-color),
+        0 0 30px var(--shadow-color);
+}
+
+/* GitHub */
+.social-btn.github {
+    background: #111;
+    box-shadow:
+        0 0 14px var(--shadow-color),
+        0 0 30px var(--shadow-color);
 }
 
 /* Hover */
-.whatsapp-float:hover {
+.social-btn:hover {
     transform: translateY(-4px) scale(1.05);
-    box-shadow:
-        0 0 18px var(--shadow-color),
-        0 0 40px var(--shadow-color);
 }
 
-/* Mobile spacing */
+/* Mobile adjustment */
 @media (max-width: 768px) {
-    .whatsapp-float {
+    .social-float {
         bottom: 18px;
         right: 18px;
-        width: 50px;
-        height: 50px;
+    }
+
+    .social-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
     }
 }
 
