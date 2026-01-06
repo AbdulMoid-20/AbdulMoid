@@ -196,19 +196,60 @@ window.addEventListener("scroll", () => {
     });
 });
 
-const modal = new bootstrap.Modal(
-    document.getElementById("projectModal")
-);
+// const modal = new bootstrap.Modal(
+//     document.getElementById("projectModal")
+// );
+
+// document.querySelectorAll(".project-card").forEach(card => {
+//     card.addEventListener("click", () => {
+//         document.getElementById("modalTitle").innerText = card.dataset.title;
+//         document.getElementById("modalDescription").innerText = card.dataset.long;
+//         document.getElementById("modalTech").innerHTML =
+//             card.dataset.tech.split(",").map(t => `<span>${t}</span>`).join("");
+
+//         document.getElementById("modalLive").href = card.dataset.live;
+//         document.getElementById("modalCode").href = card.dataset.code;
+
+//         modal.show();
+//     });
+// });
+
+
+const modalElement = document.getElementById("projectModal");
+const modal = new bootstrap.Modal(modalElement);
 
 document.querySelectorAll(".project-card").forEach(card => {
     card.addEventListener("click", () => {
-        document.getElementById("modalTitle").innerText = card.dataset.title;
-        document.getElementById("modalDescription").innerText = card.dataset.long;
-        document.getElementById("modalTech").innerHTML =
-            card.dataset.tech.split(",").map(t => `<span>${t}</span>`).join("");
 
-        document.getElementById("modalLive").href = card.dataset.live;
-        document.getElementById("modalCode").href = card.dataset.code;
+        // Set modal text
+        document.getElementById("modalTitle").innerText =
+            card.dataset.title;
+
+        document.getElementById("modalDescription").innerText =
+            card.dataset.long;
+
+        document.getElementById("modalTech").innerHTML =
+            card.dataset.tech
+                .split(",")
+                .map(t => `<span>${t}</span>`)
+                .join("");
+
+        document.getElementById("modalLive").href =
+            card.dataset.live;
+
+        document.getElementById("modalCode").href =
+            card.dataset.code;
+
+        // Get project image from card
+        const imgSrc = card.querySelector("img").src;
+        document.getElementById("modalImage").src = imgSrc;
+
+        // Reset animations
+        document.querySelectorAll(".modal-line").forEach(el => {
+            el.style.animation = "none";
+            el.offsetHeight; // force reflow
+            el.style.animation = "";
+        });
 
         modal.show();
     });

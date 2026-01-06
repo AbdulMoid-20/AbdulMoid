@@ -11,7 +11,7 @@
     --color-primary: #ff0000;
 
 
-  
+
     --color-text-primary: #ffffff;
     --color-text-secondary: #cccccc;
     --color-text-muted: #888888;
@@ -36,7 +36,7 @@
 }
 
 body {
-    cursor: none;
+    /* cursor: none; */
     background: var(--color-bg);
     color: var(--color-text-primary);
     line-height: 1.6;
@@ -50,6 +50,14 @@ body {
 section {
     padding: 4rem 0;
     scroll-margin-top: 100px;
+}
+
+html,
+button,
+.btn,
+a,
+body {
+    cursor: none;
 }
 
 
@@ -107,6 +115,7 @@ section {
         0 0 12px var(--color-primary),
         0 0 24px rgba(255, 0, 0, 0.5);
 }
+
 .cursor-core {
     position: fixed;
     width: 8px;
@@ -341,8 +350,8 @@ header.scrolled .header-divider {
     display: inline-block;
     margin-top: 25px;
     padding: 12px 28px;
-    background: var(--color-focus);
-    color: var(--color-text-secondary);
+    background: var(--color-primary);
+    color: var(--color-text-primary);
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
@@ -768,14 +777,47 @@ header.scrolled .header-divider {
 
 /* Card */
 .project-card {
-    background: linear-gradient(145deg,
+    position: relative;
+    overflow: hidden;
+    /* background: linear-gradient(145deg,
             rgba(255, 0, 0, 0.06),
-            rgba(0, 0, 0, 0.45));
+            rgba(0, 0, 0, 0.45)); */
+    background-color: var(--color-surface);
     border: 2px solid var(--border-color);
     border-radius: 1.1rem;
     box-shadow: 6px 6px 20px var(--shadow-color);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
     overflow: hidden;
+    padding: 2px;
+    /* padding: 0.8rem; */
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 1rem;
+    background: linear-gradient(120deg,
+            transparent,
+            var(--color-primary),
+            transparent,
+            var(--color-focus),
+            transparent);
+    background-size: 300% 300%;
+    animation: borderFlow 6s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 .project-card:hover {
@@ -788,6 +830,7 @@ header.scrolled .header-divider {
     position: relative;
     height: 200px;
     overflow: hidden;
+    border-radius: 1.1rem;
 }
 
 .project-image img {
@@ -805,7 +848,7 @@ header.scrolled .header-divider {
 .project-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.868);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -814,11 +857,35 @@ header.scrolled .header-divider {
 }
 
 .project-overlay span {
+    position: relative;
+    overflow: hidden;
     padding: 10px 22px;
-    border: 1px solid var(--border-color);
-    border-radius: 30px;
-    color: var(--color-primary);
+    border-radius: 10px;
+    color: var(--color-text-secondary);
     font-weight: 600;
+}
+
+.project-overlay span::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 1rem;
+    background: linear-gradient(120deg,
+            transparent,
+            var(--color-primary),
+            transparent,
+            var(--color-focus),
+            transparent);
+    background-size: 300% 300%;
+    animation: borderFlow 6s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .project-card:hover .project-overlay {
@@ -833,6 +900,7 @@ header.scrolled .header-divider {
 .project-content h3 {
     font-size: 1.4rem;
     color: var(--color-primary);
+    font-weight: bold;
     margin-bottom: 0.6rem;
 }
 
@@ -853,9 +921,218 @@ header.scrolled .header-divider {
     padding: 6px 12px;
     font-size: 0.85rem;
     border-radius: 20px;
-    border: 1px solid var(--border-color);
-    background: rgba(0, 0, 0, 0.35);
+    border: 1.5px solid var(--color-primary);
+    /* background: rgba(0, 0, 0, 0.35); */
+    background-color: var(--color-surface);
     color: var(--color-text-secondary);
+}
+
+/* ================================
+   PROJECT MODAL (PROFESSIONAL)
+================================ */
+
+/* Modal container */
+.contact-modal {
+    /* background: linear-gradient(145deg,
+            rgba(255, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.85)); */
+    background: var(--color-surface);
+    border: 2px solid var(--border-color);
+    border-radius: 1.2rem;
+    box-shadow: 0 0 40px var(--shadow-color);
+    color: var(--color-text-primary);
+    overflow: hidden;
+}
+
+
+/* Header */
+.contact-modal .modal-header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 2rem;
+}
+
+.contact-modal .modal-header h5 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.5px;
+}
+
+/* Close button */
+.contact-modal .btn-close {
+    filter: invert(1);
+    opacity: 0.7;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.contact-modal .btn-close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* Body */
+.contact-modal .modal-body {
+    padding: 2rem;
+    background: var(--color-surface);
+}
+
+/* Description */
+#modalDescription {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* Tech stack */
+#modalTech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 2.2rem;
+}
+
+#modalTech span {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--color-text-secondary);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#modalTech span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* Links */
+.modal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Buttons */
+.modal-links a {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: rgba(0, 0, 0, 0.45);
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.modal-links a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 1rem;
+    background: linear-gradient(120deg,
+            transparent,
+            var(--color-primary),
+            transparent,
+            var(--color-focus),
+            transparent);
+    background-size: 300% 300%;
+    animation: borderFlow 6s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+
+.modal-links a i {
+    font-size: 1rem;
+}
+
+/* Hover */
+.modal-links a:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+/* Modal animation (smooth entrance) */
+.modal.fade .modal-dialog {
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.modal.fade.show .modal-dialog {
+    transform: translateY(0) scale(1);
+}
+
+/* ================================
+   MODAL IMAGE PREVIEW
+================================ */
+.modal-image-wrapper {
+    width: 100%;
+    height: 280px;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1.5px solid var(--border-color);
+    box-shadow: 0 0 25px var(--shadow-color);
+}
+
+.modal-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================================
+   LINE-BY-LINE ANIMATION
+================================ */
+.modal-line {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: modalLineReveal 0.6s ease forwards;
+}
+
+.modal-line:nth-of-type(1) {
+    animation-delay: 0.15s;
+}
+
+.modal-line:nth-of-type(2) {
+    animation-delay: 0.3s;
+}
+
+.modal-line:nth-of-type(3) {
+    animation-delay: 0.45s;
+}
+
+@keyframes modalLineReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .modal-links {
+        flex-direction: column;
+    }
+
+    .modal-links a {
+        justify-content: center;
+    }
 }
 
 
@@ -938,6 +1215,7 @@ header.scrolled .header-divider {
     border: 1px solid var(--color-text-muted);
     color: var(--color-text-primary);
     outline: none;
+    cursor: none;
 }
 
 .contact-form input:focus,
@@ -965,7 +1243,6 @@ header.scrolled .header-divider {
     border: none;
     border-radius: 0.6rem;
     font-weight: 600;
-    cursor: pointer;
     transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1020,6 +1297,7 @@ header.scrolled .header-divider {
     padding: 10px 22px;
     background: var(--color-primary);
     border: none;
+    cursor: none;
     border-radius: 0.6rem;
     color: #fff;
     font-weight: 600;
@@ -1029,6 +1307,59 @@ header.scrolled .header-divider {
 .modal-btn:hover {
     background: var(--color-hover);
     box-shadow: 0 0 20px var(--shadow-color);
+}
+
+
+
+
+/* ================================
+   WHATSAPP FLOAT BUTTON
+================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-active);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    text-decoration: none;
+
+    box-shadow:
+        0 0 12px var(--shadow-color),
+        0 0 30px var(--shadow-color);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Icon */
+.whatsapp-float i {
+    font-size: 2rem;
+}
+
+/* Hover */
+.whatsapp-float:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 0 18px var(--shadow-color),
+        0 0 40px var(--shadow-color);
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 18px;
+        right: 18px;
+        width: 50px;
+        height: 50px;
+    }
 }
 
 
@@ -1161,7 +1492,6 @@ header.scrolled .header-divider {
         justify-content: center;
     }
 }
-
 
 
 
