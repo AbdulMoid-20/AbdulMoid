@@ -370,6 +370,6 @@ AOS.init({
     duration: 900,
     easing: "ease-out-cubic",
     once: true,       // animate only once
-    offset: 120
+    // offset: 120
 });
 
