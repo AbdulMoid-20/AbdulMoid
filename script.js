@@ -386,6 +386,6 @@ window.addEventListener("load", () => {
     setTimeout(() => {
         loader.classList.add("hidden");
         document.body.classList.remove("loading");
-    }, 5000); // ⏱️ 5 seconds
+    }, 3000); 
 });
 
